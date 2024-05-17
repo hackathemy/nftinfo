@@ -1,8 +1,9 @@
 import { useCollections } from "@/hooks/useCollections";
 import { Stack, Card, Typography, Box, Button, Grid } from "@mui/joy";
 import { ethers } from "ethers";
-import { useAccount } from "wagmi";
+import {useAccount, useWriteContract} from "wagmi";
 import { Balance } from "./Balance";
+import ERC20Abi from "@/abi/ERC20.abi";
 
 export const Point = () => {
   const MODE = {
@@ -32,7 +33,7 @@ export const Point = () => {
   const SEPOLIA_GELATO = {
     NAME: "SEPOLIA(GELATO HACKA)",
     CHAIN: "sepolia",
-    TOKEN: "0x5cbA335619c67b652D146bef6D68A4ca011344CF",
+    TOKEN: "0xa7488fDc92F0a999F20CfC675fa848ED5fC216A6",
     CHAIN_ID: 11155111,
   };
 
@@ -46,20 +47,35 @@ export const Point = () => {
   const SEPOLIA_CALDERA = {
     NAME: "SEPOLIA(CALDERA HACKA)",
     CHAIN: "sepolia",
-    TOKEN: "0x5cbA335619c67b652D146bef6D68A4ca011344CF",
+    TOKEN: "0x80677713169ff4269B98c86C409926f050c6F92a",
     CHAIN_ID: 11155111,
   };
   const CHAINS = [
     MODE,
     GELATO,
     CALDERA,
-    SEPOLIA_GELATO,
     SEPOLIA_MODE,
+    SEPOLIA_GELATO,
     SEPOLIA_CALDERA,
   ];
   const account = useAccount();
+  const { writeContract } = useWriteContract();
+  const bridge = async (chain: any,tokenAddress:any) => {
 
-  const bridge = async (chain: any) => {
+    try {
+      const result = await writeContract({
+        abi: ERC20Abi,
+        address: tokenAddress,
+        functionName: "transfer",
+        args: ["0x2FCCba2f198066c5Ea3e414dD50F78E25c3aF552",ethers.parseUnits("1", 18)],
+      });
+      console.log(result);
+
+    }catch (e) {
+    alert("에러")
+      console.log(e);
+      return;
+    }
 
     const data = {
       chain: chain,
@@ -74,8 +90,9 @@ export const Point = () => {
       },
     });
 
-    const transferResult = await response.json();
+    const transferResult = await response;
     console.log(transferResult);
+    alert("Bridge Success!")
   }
 
   return (
@@ -99,7 +116,7 @@ export const Point = () => {
                   </Stack>
                 )}
                 <Box sx={{ marginLeft: 2 }}>
-                  <Button variant="solid" color="success" onClick={() => bridge(chain.NAME)}>
+                  <Button variant="solid" color="success" onClick={() => bridge(chain.NAME,chain.TOKEN)}>
                     Bridge
                   </Button>
                 </Box>
