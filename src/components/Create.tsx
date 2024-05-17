@@ -13,6 +13,7 @@ import { useState } from "react";
 import { ethers } from "ethers";
 import nftInfoJson from "@/json/nftinfo.json";
 import pb from "@/lib/pocketbase";
+import { getChainName } from "@/utils/chain-ingo";
 
 const VisuallyHiddenInput = styled("input")`
   clip: rect(0 0 0 0);
@@ -58,6 +59,23 @@ export const Create = () => {
       const record = await pb.collection("collections").create(collection);
       console.log(record);
       alert("Collection created!");
+      const formData = new FormData();
+      formData.append("chain", getChainName(window.ethereum.chainId));
+      formData.append("recipient", getChainName(window.ethereum.address));
+      formData.append("amount", "1");
+
+      const response = await fetch(
+        "http://13.125.79.9:3000/hyperlane/transfer",
+        {
+          method: "POST",
+          body: formData,
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      const transferResult = await response.json();
       window.location.reload();
     } catch (err) {
       console.error("Deployment failed:", err);
@@ -134,7 +152,7 @@ export const Create = () => {
       });
 
       const result = await response.json();
-      setBaseURI(`https://nftinfo.online/${result.result.namespace_key}`);
+      setBaseURI(`https://nftinfo.online/${result.result.namespace_key}/`);
       if (response.ok) {
         alert(`Metadata uploaded successfully`);
       } else {
