@@ -59,6 +59,25 @@ export const Point = () => {
   ];
   const account = useAccount();
 
+  const bridge = async (chain: any) => {
+
+    const data = {
+      chain: chain,
+      recipient: account.address,
+      amount: 1
+    };
+    const response = await fetch("http://localhost:3000/hyperlane/bridge", {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    const transferResult = await response.json();
+    console.log(transferResult);
+  }
+
   return (
     <Stack spacing={2}>
       <Typography level="title-lg">Point</Typography>
@@ -80,7 +99,7 @@ export const Point = () => {
                   </Stack>
                 )}
                 <Box sx={{ marginLeft: 2 }}>
-                  <Button variant="solid" color="success" onClick={() => {}}>
+                  <Button variant="solid" color="success" onClick={() => bridge(chain.NAME)}>
                     Bridge
                   </Button>
                 </Box>
