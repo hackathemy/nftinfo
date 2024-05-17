@@ -5,7 +5,9 @@ export const useCollections = () => {
   return useQuery({
     queryKey: ["collections"],
     queryFn: async () => {
-      const { items } = await pb.collection("collections").getList(1, 100);
+      const { items } = await pb.collection("collections").getList(1, 100, {
+        sort: "-created",
+      });
       return items;
     },
   });

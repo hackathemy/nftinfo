@@ -14,7 +14,7 @@ import { ethers } from "ethers";
 import nftInfoJson from "@/json/nftinfo.json";
 import pb from "@/lib/pocketbase";
 import { getChainName } from "@/utils/chain-ingo";
-import {useAccount} from "wagmi";
+import { useAccount } from "wagmi";
 
 const VisuallyHiddenInput = styled("input")`
   clip: rect(0 0 0 0);
@@ -63,7 +63,7 @@ export const Create = () => {
       const data = {
         chain: getChainName(window.ethereum.chainId),
         recipient: account.address,
-        amount: 1
+        amount: 1,
       };
 
       const response = await fetch(
@@ -106,30 +106,14 @@ export const Create = () => {
       if (response.ok) {
         alert(`File uploaded successfully`);
         const meta = {
-          description: "Celestia DA Based Dragon NFT Collection",
+          description: `${name} Description`,
           external_url: "https://nftinfo.online",
           image: `https://nftinfo.online/${result.result.hash}`,
-          name: "Celestia First DA Dragon",
+          name: name,
           attributes: [
             {
-              trait_type: "Color Palette",
-              value: "Pastel pinks, blues, and purples",
-            },
-            {
-              trait_type: "Environment",
-              value: "Clouds with twinkling stars",
-            },
-            {
-              trait_type: "Disposition",
-              value: "Friendly and playful",
-            },
-            {
-              trait_type: "Special Feature",
-              value: "Translucent, ethereal wings",
-            },
-            {
-              trait_type: "Magic Power",
-              value: "Can manipulate weather patterns",
+              trait_type: "DA",
+              value: "Celestia",
             },
           ],
         };
