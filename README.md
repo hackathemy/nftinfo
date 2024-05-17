@@ -79,7 +79,7 @@ This way, each NFT collection matches a namespace with the collection key of the
 **Celestia DA-Based Storage and Data Availability:**
 - To overcome data retrieval issues associated with IPFS, NFT.info utilizes Celestia's Data Availability (DA) functionality, improving data retrieval speed and reliability.
 <br></br>
-# **Expected Benefits**
+# 📣 Expected Benefits
 NFT.info offers several key benefits:
 
 - **Data Stability:** Ensuring data availability through Celestia DA allows users to access data anytime, without seed issues.
@@ -88,6 +88,6 @@ NFT.info offers several key benefits:
 - **Maintained Decentralization:** Leveraging blockchain and distributed file systems maintains the advantages of decentralization while providing a reliable data storage solution.
 - **NFT Minting and Selling:** Users can easily mint NFTs and sell them on various marketplaces, offering opportunities for revenue generation.
 <br></br>
-# **Conclusion**
+# 🎉 Conclusion
 
 NFT.info is an innovative platform that combines the strengths of blockchain and distributed file systems to ensure the stability and accessibility of data. By addressing the traditional challenges of IPFS and leveraging Celestia DA for data availability, NFT.info offers a reliable data storage and access solution. The platform eliminates the need for separate CDN services, reducing costs and improving user experience. Additionally, with NFT minting functionality and marketplace integration, NFT.info enables users to create and sell digital assets easily. Overall, NFT.info provides a trustworthy and efficient solution for data storage and access in the digital asset space.
