@@ -51,6 +51,7 @@ export const Create = () => {
         name: name,
         symbol: symbol,
         address: address,
+        baseUri: baseURI,
         chainId: window.ethereum.networkVersion,
       };
 
@@ -133,7 +134,7 @@ export const Create = () => {
       });
 
       const result = await response.json();
-      console.log(result);
+      setBaseURI(`https://nftinfo.online/${result.result.namespace_key}`);
       if (response.ok) {
         alert(`Metadata uploaded successfully`);
       } else {
