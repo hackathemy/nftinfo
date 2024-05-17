@@ -1,9 +1,9 @@
 export const getChainName = (chainId: any) => {
-  if(chainId === 74638) {
+  if(chainId === '0x1238e') {
       return 'MODE';
-  }else if(chainId === 123420111) {
+  }else if(chainId === "0x75b3dcf") {
       return 'GELATO';
-  }else if(chainId === 9719618) {
+  }else if(chainId === "0x944f42") {
       return 'CALDERA';
   }else{
       return 'Unknown Chain';

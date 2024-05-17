@@ -14,6 +14,7 @@ import { ethers } from "ethers";
 import nftInfoJson from "@/json/nftinfo.json";
 import pb from "@/lib/pocketbase";
 import { getChainName } from "@/utils/chain-ingo";
+import {useAccount} from "wagmi";
 
 const VisuallyHiddenInput = styled("input")`
   clip: rect(0 0 0 0);
@@ -34,7 +35,7 @@ export const Create = () => {
   const [baseURI, setBaseURI] = useState("");
   const [metadata, setMetadata] = useState("");
   const [file, setFile] = useState(null);
-
+  const account = useAccount();
   const handleDeploy = async () => {
     const provider = new ethers.BrowserProvider(window.ethereum);
     const signer = await provider.getSigner();
@@ -59,23 +60,25 @@ export const Create = () => {
       const record = await pb.collection("collections").create(collection);
       console.log(record);
       alert("Collection created!");
-      const formData = new FormData();
-      formData.append("chain", getChainName(window.ethereum.chainId));
-      formData.append("recipient", getChainName(window.ethereum.address));
-      formData.append("amount", "1");
+      const data = {
+        chain: getChainName(window.ethereum.chainId),
+        recipient: account.address,
+        amount: 1
+      };
 
       const response = await fetch(
         "http://13.125.79.9:3000/hyperlane/transfer",
         {
           method: "POST",
-          body: formData,
+          body: JSON.stringify(data),
           headers: {
             "Content-Type": "application/json",
           },
         }
       );
 
-      const transferResult = await response.json();
+      const transferResult = await response;
+      console.log(transferResult);
       window.location.reload();
     } catch (err) {
       console.error("Deployment failed:", err);
