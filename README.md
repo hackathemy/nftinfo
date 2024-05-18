@@ -67,9 +67,9 @@ The chains used were MODE, GELATO, and CALDERA, and the service was configured i
 <br></br>
 # ✨ Features
 
-![main.png](https://cdn.dorahacks.io/static/files/18f8943e6408be491bf51294e2e95372.png)
+![main.png](https://cdn.dorahacks.io/static/files/18f894c1afbe9b3133e0e1c4bcd96709.png)
 
-![Create.png](https://cdn.dorahacks.io/static/files/18f8947584d978f39425e3940d68ddd3.png)
+![Create.png](https://cdn.dorahacks.io/static/files/18f894c48e2cf4c68103dfa457fa2763.png)
 
 ![Point.png](https://cdn.dorahacks.io/static/files/18f89477ddf64ac51ebe83c4c85a4205.png)
 
@@ -105,9 +105,12 @@ NFT.info offers several key benefits:
 NFT.info is an innovative platform that combines the strengths of blockchain and distributed file systems to ensure the stability and accessibility of data. By addressing the traditional challenges of IPFS and leveraging Celestia DA for data availability, NFT.info offers a reliable data storage and access solution. The platform eliminates the need for separate CDN services, reducing costs and improving user experience. Additionally, with NFT minting functionality and marketplace integration, NFT.info enables users to create and sell digital assets easily. Overall, NFT.info provides a trustworthy and efficient solution for data storage and access in the digital asset space.
 <br></br>
 # 🤖 NFT Data
+- [DA Dragons NFT Collection](https://testnets.opensea.io/collection/celestia-da-dragons)
 - [DA Dragon NFT in Opensea#1](https://testnets.opensea.io/assets/sepolia/0xd87c2b3bcf32836151d4d1980771ae53efb37d3f/1)
 - [DA Dragon NFT in Opensea#2](https://testnets.opensea.io/assets/sepolia/0xd87c2b3bcf32836151d4d1980771ae53efb37d3f/2)
 - [Celestia Blob data](https://mocha-4.celenium.io/tx/5ebb3c9e3b34736197275568be93844f6b99377c6062dac086d0680dfbe4d13f?tab=messages)
+
+![스크린샷 2024-05-18 102810.png](https://cdn.dorahacks.io/static/files/18f8950d08b7e262cb35d314db88dd54.png)
 
 ![스크린샷 2024-05-18 100256.png](https://cdn.dorahacks.io/static/files/18f8939ce37539c97c5771a4ccdaed09.png)
 
