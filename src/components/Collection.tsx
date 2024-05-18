@@ -24,7 +24,7 @@ export const Collection = ({ onMintClick }: any) => {
                       Chain ID: {collection.chainId}
                     </Typography>
                   </Stack>
-                  <Box sx={{ marginLeft: 2 }}>
+                  <Stack sx={{ marginLeft: 2 }} spacing={1}>
                     <Button
                       variant="solid"
                       color="success"
@@ -32,7 +32,18 @@ export const Collection = ({ onMintClick }: any) => {
                     >
                       Mint
                     </Button>
-                  </Box>
+                    <Button
+                      variant="solid"
+                      color="success"
+                      onClick={() =>
+                        window.open(
+                          `https://testnets.opensea.io/assets/sepolia/${collection.address}`
+                        )
+                      }
+                    >
+                      Opensea
+                    </Button>
+                  </Stack>
                 </Stack>
               </Card>
             </Grid>

@@ -22,7 +22,7 @@ import { useAccount, useWriteContract } from "wagmi";
 import { useState } from "react";
 import NFTINFO_ABI from "@/abi/\bINFTINFO.abi";
 import { Point } from "@/components/Point";
-import {getChainName} from "@/utils/chain-ingo";
+import { getChainName } from "@/utils/chain-ingo";
 
 function App() {
   const account = useAccount();
@@ -90,18 +90,18 @@ function App() {
                 const data = {
                   chain: getChainName(window.ethereum.chainId),
                   recipient: account.address,
-                  amount: 1
+                  amount: 1,
                 };
 
                 const response = await fetch(
-                    "http://13.125.79.9:3000/hyperlane/transfer",
-                    {
-                      method: "POST",
-                      body: JSON.stringify(data),
-                      headers: {
-                        "Content-Type": "application/json",
-                      },
-                    }
+                  "http://13.125.79.9:3000/hyperlane/transfer",
+                  {
+                    method: "POST",
+                    body: JSON.stringify(data),
+                    headers: {
+                      "Content-Type": "application/json",
+                    },
+                  }
                 );
 
                 const transferResult = await response;
