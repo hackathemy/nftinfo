@@ -214,7 +214,6 @@ export const Create = () => {
                 placeholder="Metadata"
                 variant="outlined"
                 value={metadata}
-                readOnly
                 sx={{ flexGrow: 1 }}
               />
               <Button type="submit" variant="solid" color="neutral">
@@ -225,12 +224,7 @@ export const Create = () => {
         </form>
         <FormControl>
           <FormLabel>Base URI</FormLabel>
-          <Input
-            placeholder="Base URI"
-            variant="outlined"
-            value={baseURI}
-            readOnly
-          />
+          <Input placeholder="Base URI" variant="outlined" value={baseURI} />
         </FormControl>
         <Button onClick={handleDeploy} color="success">
           Create Collection
