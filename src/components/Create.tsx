@@ -215,6 +215,7 @@ export const Create = () => {
                 variant="outlined"
                 value={metadata}
                 sx={{ flexGrow: 1 }}
+                onChange={(event) => setMetadata(event.target.value)}
               />
               <Button type="submit" variant="solid" color="neutral">
                 Upload Metadata
@@ -224,7 +225,12 @@ export const Create = () => {
         </form>
         <FormControl>
           <FormLabel>Base URI</FormLabel>
-          <Input placeholder="Base URI" variant="outlined" value={baseURI} />
+          <Input
+            placeholder="Base URI"
+            variant="outlined"
+            onChange={(event) => setBaseURI(event.target.value)}
+            value={baseURI}
+          />
         </FormControl>
         <Button onClick={handleDeploy} color="success">
           Create Collection
