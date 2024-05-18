@@ -59,6 +59,12 @@ The search logic is designed as follows:
  - Metadata: Metadata is searchable using the combination of namespace and index number.
 This way, each NFT collection matches a namespace with the collection key of the base URI. By incrementing the URL index number, users can sequentially access the NFT metadata.
 <br></br>
+# 👻 Bountie:
+
+We use rollchains to provide the ability to create NFTs and airdrop tokens from rollchains. Additionally, tokens received from Lollchain can be transferred to the main chain and used through Hyperlane.
+Using this, transactions can freely occur in the roll chain where the gas price is low, but the final reward can be used on the main chain.
+The chains used were MODE, GELATO, and CALDERA, and the service was configured in the cloud through conduit and Kurtosis.
+<br></br>
 # ✨ Features
 
 **Displaying Metadata via BASE URI:**
@@ -91,3 +97,8 @@ NFT.info offers several key benefits:
 # 🎉 Conclusion
 
 NFT.info is an innovative platform that combines the strengths of blockchain and distributed file systems to ensure the stability and accessibility of data. By addressing the traditional challenges of IPFS and leveraging Celestia DA for data availability, NFT.info offers a reliable data storage and access solution. The platform eliminates the need for separate CDN services, reducing costs and improving user experience. Additionally, with NFT minting functionality and marketplace integration, NFT.info enables users to create and sell digital assets easily. Overall, NFT.info provides a trustworthy and efficient solution for data storage and access in the digital asset space.
+<br></br>
+# 🤖 NFT Data
+- [NFT in Opensea](https://testnets.opensea.io/assets/sepolia/0xf475f50decb74a8a5f1174f63ff0a8d0848a4e26/1)
+- [Celestia Blob data](https://mocha-4.celenium.io/tx/5ebb3c9e3b34736197275568be93844f6b99377c6062dac086d0680dfbe4d13f?tab=messages)
+
