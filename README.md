@@ -67,6 +67,12 @@ The chains used were MODE, GELATO, and CALDERA, and the service was configured i
 <br></br>
 # ✨ Features
 
+![main.png](https://cdn.dorahacks.io/static/files/18f8943e6408be491bf51294e2e95372.png)
+
+![Create.png](https://cdn.dorahacks.io/static/files/18f8947584d978f39425e3940d68ddd3.png)
+
+![Point.png](https://cdn.dorahacks.io/static/files/18f89477ddf64ac51ebe83c4c85a4205.png)
+
 **Displaying Metadata via BASE URI:**
 - NFT.info displays metadata, including PNG and SVG files, through BASE URI. It's specified in the format "NFTinfo.online/random_number" to easily locate the metadata of a particular NFT.
 
