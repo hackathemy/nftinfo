@@ -1,7 +1,7 @@
 import { useCollections } from "@/hooks/useCollections";
-import { Stack, Card, Typography, Box, Button, Grid } from "@mui/joy";
+import { Stack, Card, Typography, Box, Button, Grid, Alert } from "@mui/joy";
 import { ethers } from "ethers";
-import {useAccount, useWriteContract} from "wagmi";
+import { useAccount, useWriteContract } from "wagmi";
 import { Balance } from "./Balance";
 import ERC20Abi from "@/abi/ERC20.abi";
 
@@ -60,19 +60,20 @@ export const Point = () => {
   ];
   const account = useAccount();
   const { writeContract } = useWriteContract();
-  const bridge = async (chain: any,tokenAddress:any) => {
-
+  const bridge = async (chain: any, tokenAddress: any) => {
     try {
       const result = await writeContract({
         abi: ERC20Abi,
         address: tokenAddress,
         functionName: "transfer",
-        args: ["0x2FCCba2f198066c5Ea3e414dD50F78E25c3aF552",ethers.parseUnits("1", 18)],
+        args: [
+          "0x2FCCba2f198066c5Ea3e414dD50F78E25c3aF552",
+          ethers.parseUnits("1", 18),
+        ],
       });
       console.log(result);
-
-    }catch (e) {
-    alert("에러")
+    } catch (e) {
+      alert("에러");
       console.log(e);
       return;
     }
@@ -80,7 +81,7 @@ export const Point = () => {
     const data = {
       chain: chain,
       recipient: account.address,
-      amount: 1
+      amount: 1,
     };
     const response = await fetch("http://localhost:3000/hyperlane/bridge", {
       method: "POST",
@@ -92,12 +93,18 @@ export const Point = () => {
 
     const transferResult = await response;
     console.log(transferResult);
-    alert("Bridge Success!")
-  }
+    alert("Bridge Success!");
+  };
 
   return (
     <Stack spacing={2}>
       <Typography level="title-lg">Point</Typography>
+
+      <Alert color="neutral">
+        To earn points, create a collection or mint an NFT. Points are created
+        in each chain (GELATO L3, CALDERA L3, MODE L3) Points are transferred
+        via Hyperlane to Sepolia. All currencies will be combined in the future.
+      </Alert>
       <Grid container spacing={2} sx={{ flexGrow: 1 }}>
         {CHAINS.map((chain: any) => (
           <Grid xs={6} md={4} key={chain.CHAIN_ID}>
@@ -116,7 +123,11 @@ export const Point = () => {
                   </Stack>
                 )}
                 <Box sx={{ marginLeft: 2 }}>
-                  <Button variant="solid" color="success" onClick={() => bridge(chain.NAME,chain.TOKEN)}>
+                  <Button
+                    variant="solid"
+                    color="success"
+                    onClick={() => bridge(chain.NAME, chain.TOKEN)}
+                  >
                     Bridge
                   </Button>
                 </Box>

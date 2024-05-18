@@ -1,5 +1,5 @@
 import { useCollections } from "@/hooks/useCollections";
-import { Stack, Card, Typography, Box, Button, Grid } from "@mui/joy";
+import { Stack, Card, Typography, Box, Button, Grid, Alert } from "@mui/joy";
 import { useAccount } from "wagmi";
 
 export const Collection = ({ onMintClick }: any) => {
@@ -7,8 +7,12 @@ export const Collection = ({ onMintClick }: any) => {
   const { data: collections }: any = useCollections();
 
   return (
-    <Stack spacing={2}>
+    <Stack spacing={3}>
       <Typography level="title-lg">Collections</Typography>
+      <Alert color="neutral">
+        Collections are distributed normally to the L3 chain, but confirmation
+        on the marketplace is only possible in Sepolia.
+      </Alert>
       <Grid container spacing={2} sx={{ flexGrow: 1 }}>
         {collections &&
           collections.map((collection: any) => (
@@ -34,7 +38,7 @@ export const Collection = ({ onMintClick }: any) => {
                     </Button>
                     <Button
                       variant="solid"
-                      color="success"
+                      color="primary"
                       onClick={() =>
                         window.open(
                           `https://testnets.opensea.io/assets/sepolia/${collection.address}`

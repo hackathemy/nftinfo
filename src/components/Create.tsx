@@ -7,6 +7,7 @@ import {
   styled,
   FormControl,
   FormLabel,
+  Alert,
 } from "@mui/joy";
 
 import { useState } from "react";
@@ -155,6 +156,11 @@ export const Create = () => {
       <Typography level="title-lg">
         Create NFT Collection with nftinfo.🟢nline
       </Typography>
+      <Alert color="neutral">
+        Images and metadata are uploaded to Celestia DA via nftinfo.online.
+        Collections can be distributed to any chain currently connected to
+        MetaMask.
+      </Alert>
       <Stack spacing={3}>
         <Stack spacing={1}>
           <FormControl>
